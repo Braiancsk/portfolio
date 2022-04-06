@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import {useEffect, useContext} from 'react'
+import {useEffect, useContext, useState} from 'react'
 import { darkContext } from "../../globalContext/darkModeContext";
 import { MdLightMode, MdNightlight } from 'react-icons/md';
 
@@ -29,10 +29,16 @@ function Navbar() {
     }
   
   }
+
+  const [menuIsVisible, setMenuIsVisible] = useState(false)
   
   return (
     <darkContext.Provider value= {{ darkMode, setDarkMode }}>
     <nav className="flex justify-between items-center container relative z-[1] w-full px-2 py-5">
+    <aside className="fixed bottom-[20px] left-0 rigth-0 mx-auto max-w-[80%]  w-full transition duration-500 dark:bg-[#0A121E] p-3 hidden">
+
+    </aside>
+
       <Link href="/">
         <a className="rounded-full">
           <Image
