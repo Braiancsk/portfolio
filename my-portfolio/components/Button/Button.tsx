@@ -18,7 +18,7 @@ function Button({text, outlined,onClick,url,isLink, border}:buttonProps) {
         <a
         title={text}
         className={`
-        transition p-3 max-w-[236px] w-full block text-center rounded-md font-bold text-sm md:text-xl
+        transition duration-500 p-3 w-full block text-center rounded-md font-bold text-sm md:text-xl
         ${!outlined ? 'dark:bg-primary dark:hover:bg-darker dark:text-black/80 dark:hover:text-white hover:bg-light-btn bg-light-btn-hover text-white' : ''}
         ${outlined ? 'bg-transparent border-2 dark:text-white text-black/80' : ''} 
         ${border 
@@ -33,7 +33,7 @@ function Button({text, outlined,onClick,url,isLink, border}:buttonProps) {
       <button 
       title={text}
       onClick={onClick} 
-      className={`transition p-3 max-w-[236px] w-full border-0 dark:bg-primary hover:dark:bg-darker hover:bg-light-btn bg-light-btn-hover  dark:text-black/80 dark:hover:text-white text-white text-center rounded-md font-bold 
+      className={`transition duration-500 p-3 w-full border-0 dark:bg-primary hover:dark:bg-darker hover:bg-light-btn bg-light-btn-hover  dark:text-black/80 dark:hover:text-white text-white text-center rounded-md font-bold 
       ${border ? 'button-border relative after:z-[-1] after:rounded-md after:w-full after:h-full after:absolute after:top-[8px] after:right-[-8px] after:border-2 dark:after:border-primary border-light-btn after:border-light-btn' : '' }`}>
         {text}
       </button>
