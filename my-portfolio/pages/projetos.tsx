@@ -29,6 +29,7 @@ const { darkMode } = useContext(darkContext);
             <div className="mt-20">
             {project.map((projeto: projetoTypes) => {
                return( <Projeto
+                key={projeto.title}
                 title={projeto.title}
                 description={projeto.description}
                 skills={projeto.skills.map(skill => skill)}
