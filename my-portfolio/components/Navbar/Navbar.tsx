@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import {useEffect, useContext, useState} from 'react'
 import { darkContext } from "../../globalContext/darkModeContext";
 import { MdLightMode, MdNightlight } from 'react-icons/md';
+import {TiHome} from 'react-icons/ti'
 
 function Navbar() {
   const { asPath } = useRouter();
@@ -35,8 +36,15 @@ function Navbar() {
   return (
     <darkContext.Provider value= {{ darkMode, setDarkMode }}>
     <nav className="flex justify-between items-center container relative z-[1] w-full px-2 py-5">
-    <aside className="fixed bottom-[20px] left-0 rigth-0 mx-auto max-w-[80%]  w-full transition duration-500 dark:bg-[#0A121E] p-3 hidden">
-
+    <aside className="fixed bottom-[20px] left-0 right-0 mx-auto max-w-[90%] w-full transition duration-500 dark:bg-[#0A121E] p-3">
+      <ul className="flex gap-4">
+        <li className="flex flex-col items-center">
+          <Link href="/">
+            <TiHome/>
+            <a className="transition duration-500 dark:text-white font-bold text-lg">Ínicio</a>
+          </Link>
+        </li>
+      </ul>
     </aside>
 
       <Link href="/">
