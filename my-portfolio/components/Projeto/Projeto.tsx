@@ -15,7 +15,7 @@ function Projeto({title, description, skills, url, image}:projetoTypes) {
             <div className="flex gap-3 mt-5">
                 {skills.map(skill => {
                    return(
-                    <span className="transition duration-500 dark:text-[#826F66] text-[#61A4BC] text-sm block md:mx-0 mx-auto">{skill}</span>
+                    <span key={skill} className="transition duration-500 dark:text-[#826F66] text-[#61A4BC] text-sm block md:mx-0 mx-auto">{skill}</span>
                    ) 
                 })}
             </div>

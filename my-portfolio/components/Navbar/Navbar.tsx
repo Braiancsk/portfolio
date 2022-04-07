@@ -5,6 +5,7 @@ import {useEffect, useContext, useState} from 'react'
 import { darkContext } from "../../globalContext/darkModeContext";
 import { MdLightMode, MdNightlight } from 'react-icons/md';
 import {TiHome} from 'react-icons/ti'
+import {FaLightbulb} from 'react-icons/fa'
 
 function Navbar() {
   const { asPath } = useRouter();
@@ -37,11 +38,19 @@ function Navbar() {
     <darkContext.Provider value= {{ darkMode, setDarkMode }}>
     <nav className="flex justify-between items-center container relative z-[1] w-full px-2 py-5">
     <aside className="fixed bottom-[20px] left-0 right-0 mx-auto max-w-[90%] w-full transition duration-500 dark:bg-[#0A121E] py-3 px-5">
-      <ul className="flex gap-4">
+      <ul className="flex gap-6">
+
         <li className="flex flex-col items-center">
         <TiHome className="transition duration-500 dark:text-white font-bold text-2xl"/>
           <Link href="/">
             <a className="transition duration-500 dark:text-white text-lg text-center">Ínicio</a>
+          </Link>
+        </li>
+
+        <li className="flex flex-col items-center">
+        <FaLightbulb className="transition duration-500 dark:text-white font-bold text-2xl"/>
+          <Link href="/projetos">
+            <a className="transition duration-500 dark:text-white text-lg text-center">Projetos</a>
           </Link>
         </li>
       </ul>

@@ -32,7 +32,7 @@ const { darkMode } = useContext(darkContext);
                 key={projeto.title}
                 title={projeto.title}
                 description={projeto.description}
-                skills={projeto.skills.map(skill => skill)}
+                skills={projeto.skills}
                 url={projeto.url}
                 image={projeto.image}
                 />
