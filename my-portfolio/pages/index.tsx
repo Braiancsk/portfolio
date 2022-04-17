@@ -16,15 +16,32 @@ import { CgArrowTopRightR } from "react-icons/cg";
 import Card from "../components/Card/Card";
 import LinkCard from "../components/LinkCard/LinkCard";
 import Footer from "../components/Footer/Footer";
+import { menuContext } from "../globalContext/menuContext";
+import Menu from "../components/Menu/Menu";
 
 const Home: NextPage = () => {
   const { darkMode } = useContext(darkContext);
+  const { menu, setMenu } = useContext(menuContext);
+
+  const handleMenu = () =>{
+    setMenu(false)
+  }
+
 
   return (
+    <div className={`transition relative duration-500 ${darkMode} ${
+      darkMode === "dark" ? "bg-waves" : "bg-white"
+    }`}>
+
+    <Menu/>
     <main
-      className={`transition duration-500 ${darkMode} ${
+      onClick={handleMenu}
+      className={`transition relative duration-500 ${darkMode} ${
         darkMode === "dark" ? "bg-[#3A3845]" : "bg-white"
-      }`}
+      }
+      ${menu ? "scale-75 translate-x-[300px] translate-y-[-500px] rounded-md" : ""} 
+      `
+    }
     >
       <Head>
         <title>Fellipedev | Home</title>
@@ -32,20 +49,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
       <div className="transition duration-500 dark:bg-waves bg-light-bg rounded-br-[600px] max-w-[800px] w-full md:min-h-[1024px] min-h-[690px] absolute top-0 left-0"></div>
       <section className="container px-3 z-10 relative">
-        <Navbar />
+      <Navbar />
 
         <header className="md:mt-[200px] mt-8 max-w-[540px] w-full">
           <h1 className="dark:text-white text-black/80 text-2xl md:text-3xl transition duration-500">
             - Olá, eu sou o{" "}
-            <b className="dark:text-primary text-light-text text-2xl md:text-3xl">Braian</b>
+            <b className="dark:text-primary text-light-text text-2xl md:text-3xl transition duration-500">Braian</b>
             ,{" "}
-            <b className="dark:text-primary text-light-text text-2xl md:text-3xl">
+            <b className="dark:text-primary text-light-text text-2xl md:text-3xl transition duration-500">
               desenvolvedor web
             </b>{" "}
             e{" "}
-            <b className="dark:text-primary text-light-text text-2xl md:text-3xl">
+            <b className="dark:text-primary text-light-text text-2xl md:text-3xl transition duration-500">
               Freelancer
             </b>
           </h1>
@@ -375,6 +393,7 @@ const Home: NextPage = () => {
 
       <Footer/>
     </main>
+    </div>
   );
 };
 

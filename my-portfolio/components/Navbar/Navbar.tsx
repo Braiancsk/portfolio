@@ -3,10 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import {useEffect, useContext, useState} from 'react'
 import { darkContext } from "../../globalContext/darkModeContext";
-import { MdLightMode, MdNightlight, MdConnectWithoutContact } from 'react-icons/md';
-import {TiHome} from 'react-icons/ti'
-import {HiOutlineMenuAlt3} from 'react-icons/hi'
-import {FaLightbulb, FaBookReader} from 'react-icons/fa'
+import { MdLightMode, MdNightlight } from 'react-icons/md';
+
 
 function Navbar() {
   const { asPath } = useRouter();
@@ -33,49 +31,13 @@ function Navbar() {
   
   }
 
-  const [menuIsVisible, setMenuIsVisible] = useState(false)
   
   return (
+
     <darkContext.Provider value= {{ darkMode, setDarkMode }}>
-    <nav className="flex justify-between items-center container relative z-[1] w-full px-2 py-5">
 
-    <aside className="fixed bottom-[20px] left-0 right-0 mx-auto max-w-[90%] w-full transition duration-500 dark:bg-[#0A121E] py-3 px-5 xl:hidden z-10 overflow-x-scroll">
-      <ul className="flex justify-center gap-5">
-
-        <li className="flex flex-col items-center">
-        <TiHome className="transition duration-500 dark:text-white font-bold text-2xl"/>
-          <Link href="/">
-            <a className="transition duration-500 dark:text-white text-lg text-center">Ínicio</a>
-          </Link>
-        </li>
-
-        <li className="flex flex-col items-center">
-        <FaLightbulb className="transition duration-500 dark:text-white font-bold text-2xl"/>
-          <Link href="/projetos">
-            <a className="transition duration-500 dark:text-white text-lg text-center">Projetos</a>
-          </Link>
-        </li>
-
-        <li className="flex flex-col items-center">
-        <FaBookReader className="transition duration-500 dark:text-white font-bold text-2xl"/>
-          <Link href="/sobre">
-            <a className="transition duration-500 dark:text-white text-lg text-center">Sobre</a>
-          </Link>
-        </li>
-
-        <li className="flex flex-col items-center">
-        <MdConnectWithoutContact className="transition duration-500 dark:text-white font-bold text-2xl"/>
-          <Link href="/contato">
-            <a className="transition duration-500 dark:text-white text-lg text-center">Contato</a>
-          </Link>
-        </li>
-
-        <li className="flex flex-col items-center">
-        <HiOutlineMenuAlt3 className="transition duration-500 dark:text-white font-bold text-2xl"/>
-            <button className="transition duration-500 dark:text-white text-lg text-center">Menu</button>
-        </li>
-      </ul>
-    </aside>
+  
+    <nav className="transition duration-500 flex justify-between items-center container relative z-[1] w-full px-2 py-5">
 
       <Link href="/">
         <a className="rounded-full">
@@ -161,6 +123,7 @@ function Navbar() {
 
     </nav>
     </darkContext.Provider>
+
   );
 }
 
