@@ -22,7 +22,13 @@ export const getStaticProps = async () => {
 
 const Projetos: NextPage = ({project}:any) => {
 const { darkMode } = useContext(darkContext);
-const { menu } = useContext(menuContext);
+const { menu, setMenu } = useContext(menuContext);
+
+const handleMenu = () =>{
+  setMenu(false)
+}
+
+
   return (
     <section className={`transition relative duration-500 ${darkMode} ${
       darkMode === "dark" ? "bg-waves" : "bg-white"
@@ -33,11 +39,11 @@ const { menu } = useContext(menuContext);
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Menu/>
-    <main className={`transition duration-500 ${darkMode} ${darkMode === "dark" ? "bg-[#3A3845]" : "bg-white" } ${menu ? "scale-75 translate-x-[300px] translate-y-[-700px] rounded-md" : ""}`}>
+    <main onClick={handleMenu} className={`transition duration-500 ${darkMode} ${darkMode === "dark" ? "bg-[#3A3845]" : "bg-white" } ${menu ? "scale-75 translate-x-[70%] translate-y-[-11%] rounded-md" : ""}`}>
         <Navbar/>
     
-        <section className="container py-[140px] px-2">
-            <h1 className="transition duration-500 dark:text-white font-bold text-2xl md:text-3xl">Confira alguns dos meus projetos</h1>
+        <section className="container pb-[150px] pt-[80px] px-5">
+            <h1 className="transition duration-500 dark:text-white font-bold text-2xl md:text-3xl lg:text-left text-center">Confira alguns dos meus projetos</h1>
             <div className="mt-20">
             {project.map((projeto: projetoTypes) => {
                return( <Projeto

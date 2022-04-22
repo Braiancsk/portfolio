@@ -6,6 +6,7 @@ import { darkContext } from "../../globalContext/darkModeContext";
 import { MdLightMode, MdNightlight } from 'react-icons/md';
 
 
+
 function Navbar() {
   const { asPath } = useRouter();
 
@@ -29,9 +30,9 @@ function Navbar() {
       localStorage.setItem('darkMode', 'dark')
     }
   
+    
   }
 
-  
   return (
 
     <darkContext.Provider value= {{ darkMode, setDarkMode }}>
@@ -111,11 +112,7 @@ function Navbar() {
             <a className={`transition duration-500 dark:text-white text-light-text  link-border ${asPath === '/sobre' ? 'active-link dark:text-primary text-light-btn-hover-hover dark:after:bg-primary after:bg-light-text' : 'after:bg-transparent'}`}>Sobre</a>
           </Link>
         </li>
-        <li className="transition hover:scale-110 dark:hover:text-primary">
-        <Link href="/contato">
-            <a className={`transition duration-500 dark:text-white text-light-text  link-border ${asPath === '/contato' ? 'active-link dark:text-primary text-light-btn-hover-hover dark:after:bg-primary after:bg-light-text' : 'after:bg-transparent'}`}>Contato</a>
-          </Link>
-        </li> 
+  
       </ul>
       </aside>
   

@@ -18,7 +18,7 @@ export default function handler(
       title: 'Beach Tennis',
       description: 'Front-End da Landing Page de Beach Tennis, desenvolvida com base em layout no Figma. Bastante detalhes em funcionalidades, principalmente slides e tabs',
       skills: ['HTML','CSS','JS','Boostrap 5'],
-      url: 'https://landing-page-eduardo.vercel.app/',
+      url: 'https://www.rankingdetenis.com/federacao-fbt',
       image:'/projeto-beachtennis.png'
     },
 
@@ -58,9 +58,17 @@ export default function handler(
     {
       title: 'Calculadora de ganhos',
       description: 'Aplicação desenvolvida para me auxiliar a anotar os ganhos mensais como Freelancer. Como funciona? Aplicação feita com Reactjs, utilizando o localstorage para armazenar os dados dos ganhos. Dessa forma eu consigo colocar de qual plataforma entre o 99Freelas e o Workana veio o ganho, e também filtrar os valores de acordo com o mês, excluir ganhos e também saber o quanto aquele ganho equivale em porcentagem ao valor total.',
-      skills: ['Reactjs','Typescript','LocalStorage'],
+      skills: ['Reactjs','Typescript','LocalStorage', 'TailwindCSS'],
       url: 'https://topgains.vercel.app/',
       image:'/calculadora.png'
+    },
+
+    {
+      title: 'TODO App',
+      description: 'Projeto desenvolvido como desafio no site do https://www.frontendmentor.io/. O objetivo era construir um app de TODO, permitindo o usuário criar tarefas, marcar como concluída e excluir tarefas. O app deveria ser responsivo e também deveria permitir o usuário trocar o tema entre modo claro e escuro. Construi o backend simulado, utilizando o miragejs para mockar a API. Veja como ficou o resultado no link abaixo.',
+      skills: ['Reactjs','Typescript','LocalStorage', 'TailwindCSS'],
+      url: 'https://todo-app-blue-six.vercel.app/',
+      image:'/todo.png'
     },
   ])
 }

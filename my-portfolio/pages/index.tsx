@@ -18,6 +18,8 @@ import LinkCard from "../components/LinkCard/LinkCard";
 import Footer from "../components/Footer/Footer";
 import { menuContext } from "../globalContext/menuContext";
 import Menu from "../components/Menu/Menu";
+import { AnimatePresence } from "framer-motion"
+import Modal from '../components/Modal/Modal';
 
 const Home: NextPage = () => {
   const { darkMode } = useContext(darkContext);
@@ -27,19 +29,44 @@ const Home: NextPage = () => {
     setMenu(false)
   }
 
+  //modal para contato
+  const [isVisible, setIsVisible] = useState(false)
+  const handleOpenModal = () =>{
+    setIsVisible(true)
+  }
+  const handleCloseModal = () =>{
+
+    setIsVisible(false)
+    console.log(isVisible)
+  }
+
 
   return (
     <div className={`transition relative duration-500 ${darkMode} ${
-      darkMode === "dark" ? "bg-waves" : "bg-white"
+      darkMode === "dark" ? "bg-[#3A3845]" : "bg-white"
     }`}>
 
     <Menu/>
+
+    
+    <AnimatePresence initial={false}>
+      {isVisible && 
+
+      <Modal
+      closeModal={handleCloseModal}
+      visible={isVisible}
+      />
+
+      }
+
+      </AnimatePresence>
+
     <main
       onClick={handleMenu}
       className={`transition relative duration-500 ${darkMode} ${
         darkMode === "dark" ? "bg-[#3A3845]" : "bg-white"
       }
-      ${menu ? "scale-75 translate-x-[300px] translate-y-[-500px] rounded-md" : ""} 
+      ${menu ? "scale-75 translate-x-[70%] translate-y-[-11%] rounded-md" : ""} 
       `
     }
     >
@@ -51,7 +78,7 @@ const Home: NextPage = () => {
 
 
       <div className="transition duration-500 dark:bg-waves bg-light-bg rounded-br-[600px] max-w-[800px] w-full md:min-h-[1024px] min-h-[690px] absolute top-0 left-0"></div>
-      <section className="container px-3 z-10 relative">
+      <section className="container px-5 z-10 relative">
       <Navbar />
 
         <header className="md:mt-[200px] mt-8 max-w-[540px] w-full">
@@ -81,11 +108,12 @@ const Home: NextPage = () => {
               onClick={() => console.log("Baixar CV")}
             />
             <Button
-              isLink={true}
+              isLink={false}
               outlined={true}
               border={true}
               url="/contato"
               text="Me contrate agora"
+              onClick={handleOpenModal}
             />
           </div>
 
@@ -153,11 +181,11 @@ const Home: NextPage = () => {
 
           <div className="mt-8 max-w-[236px] w-full">
             <Button
-              isLink={true}
-              url="/contato"
+              isLink={false}
               outlined={false}
               border={false}
               text="Converse comigo"
+              onClick={handleOpenModal}
             />
           </div>
 
@@ -380,11 +408,11 @@ const Home: NextPage = () => {
      
       <div className="max-w-[273px] w-full">
       <Button 
-      url="/contato"
-      isLink={true}
+      isLink={false}
       text="Entre em contato"
       outlined={false}
       border={false}
+      onClick={handleOpenModal}
       />
       </div>
     
