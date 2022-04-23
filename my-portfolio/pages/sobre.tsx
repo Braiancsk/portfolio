@@ -47,7 +47,6 @@ const { darkMode } = useContext(darkContext);
       {isVisible && 
 
       <Modal
-      isContatct={true}
       closeModal={handleCloseModal}
       visible={isVisible}
       />
