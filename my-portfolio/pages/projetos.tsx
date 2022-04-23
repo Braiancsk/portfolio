@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import React, { useContext } from 'react'
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar'
@@ -9,8 +9,10 @@ import Menu from '../components/Menu/Menu';
 import { menuContext } from '../globalContext/menuContext';
 import Head from 'next/head';
 
-export const getStaticProps = async () => {
-    const response = await fetch('http://localhost:3000/api/projetos')
+export const getServerSideProps:GetServerSideProps = async (context) => {
+    const url = context.req.headers.host
+    console.log(url)
+    const response = await fetch(`https://${url}/api/projetos`)
     const data = await response.json()
     return {
       props: {
