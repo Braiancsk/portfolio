@@ -37,13 +37,7 @@ function Footer() {
                     </a>
                 </Link>
                 </li>
-                <li className="list-none text-lg dark:text-white text-light-text mt-3 transition duration-500">
-                <Link href="/contato">
-                    <a>
-                    Contato
-                    </a>
-                </Link>
-                </li>
+             
             </ul>
 
             <ul className="mx-auto md:mx-0 mb-10 md:mb-0">

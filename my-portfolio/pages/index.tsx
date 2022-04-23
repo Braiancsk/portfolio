@@ -20,6 +20,7 @@ import { menuContext } from "../globalContext/menuContext";
 import Menu from "../components/Menu/Menu";
 import { AnimatePresence } from "framer-motion"
 import Modal from '../components/Modal/Modal';
+import ModalCv from "../components/ModalCv/ModalCv";
 
 const Home: NextPage = () => {
   const { darkMode } = useContext(darkContext);
@@ -31,13 +32,19 @@ const Home: NextPage = () => {
 
   //modal para contato
   const [isVisible, setIsVisible] = useState(false)
+  const [isCvVisible, setIsCvVisible] = useState(false)
+
   const handleOpenModal = () =>{
     setIsVisible(true)
   }
   const handleCloseModal = () =>{
-
     setIsVisible(false)
-    console.log(isVisible)
+  }
+  const handleOpenCvModal = () =>{
+    setIsCvVisible(true)
+  }
+  const handleCloseCvModal = () =>{
+    setIsCvVisible(false)
   }
 
 
@@ -55,6 +62,17 @@ const Home: NextPage = () => {
       <Modal
       closeModal={handleCloseModal}
       visible={isVisible}
+      />
+
+      }
+    </AnimatePresence>
+
+      <AnimatePresence initial={false}>
+      {isCvVisible && 
+
+      <ModalCv
+      closeModal={handleCloseCvModal}
+      visible={isCvVisible}
       />
 
       }
@@ -105,7 +123,7 @@ const Home: NextPage = () => {
               outlined={false}
               border={true}
               text="Download CV"
-              onClick={() => console.log("Baixar CV")}
+              onClick={handleOpenCvModal}
             />
             <Button
               isLink={false}
