@@ -12,7 +12,7 @@ import Head from 'next/head';
 export const getServerSideProps:GetServerSideProps = async (context) => {
     const url = context.req.headers.host
     console.log(url)
-    const response = await fetch(`https://${url}/api/projetos`)
+    const response = await fetch(`http://${url}/api/projetos`)
     const data = await response.json()
     return {
       props: {

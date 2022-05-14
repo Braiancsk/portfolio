@@ -70,5 +70,12 @@ export default function handler(
       url: 'https://todo-app-blue-six.vercel.app/',
       image:'/todo.png'
     },
+    {
+      title: 'Checkout Ebook Market',
+      description: 'Checkout para loja de Ebook, com integração com método de pagamento.',
+      skills: ['Reactjs','LocalStorage', 'TailwindCSS'],
+      url: 'https://checkout.ebookmarket.com.br/pagamento/20/NCWnylsIQy6FTsyy',
+      image:'/checkout.png'
+    },
   ])
 }
